@@ -32,8 +32,8 @@
 #define motorPin8  10    //  28BYJ48 pin 4 接 10#
 
 
-#define stp1 790		//
-#define stp2 1226		//修改此参数，可以改变图案的尺寸和样式，数值越大图案越大，差距越大越复杂。达到2数的最小公倍数后图案封闭。
+#define stp1 279		//
+#define stp2 673		//修改此参数，可以改变图案的尺寸和样式，数值越大图案越大，差距越大越复杂。达到2数的最小公倍数后图案封闭。
 
 
 AccelStepper stepper1(HALFSTEP, motorPin1, motorPin3, motorPin2, motorPin4);
@@ -42,16 +42,16 @@ AccelStepper stepper2(HALFSTEP, motorPin5, motorPin7, motorPin6, motorPin8);
 void setup() 
 {
   Serial.begin(9600);
-  stepper1.setMaxSpeed(1000.0);     //最大速度，过高扭矩变小，超过256容易丢步
-  stepper1.setAcceleration(256.0);  //加速度，试稳定程序可以调节。
-  stepper1.setSpeed(256);           //速度
+  stepper1.setMaxSpeed(800.0);     //最大速度，过高扭矩变小，超过256容易丢步
+  stepper1.setAcceleration(200.0);  //加速度，试稳定程序可以调节。
+  stepper1.setSpeed(50);           //速度
   //视 FULLSTEP 或 HALFSTEP， 1024 或 512 步进电机转一周   
   //设置电机1的旋转步数 可调节（数字越大，图形尺寸越大）
   stepper1.moveTo(stp1);
   
-  stepper2.setMaxSpeed(1000.0);
-  stepper2.setAcceleration(256.0);
-  stepper2.setSpeed(256);
+  stepper2.setMaxSpeed(800.0);
+  stepper2.setAcceleration(200.0);
+  stepper2.setSpeed(50);
   //同stepper1
   stepper2.moveTo(stp2);  
   
