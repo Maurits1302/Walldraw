@@ -11,10 +11,10 @@
 //
 
 
-#include <TinyStepper_28BYJ_48.h>
+#include <TinyStepper_28BYJ_48.h>		//步进电机的库 如果没有该lib请按Ctrl+Shift+I 从 库管理器中搜索 Stepper_28BYJ_48，并安装
+	//上面报错，请观看视频教程 2分30秒起 https://www.ixigua.com/6846441137809392131
 #include <Servo.h>
-
-#include <SD.h>  //需要SD卡读卡器模块，或者tf读卡器模块
+#include <SD.h>  //需要SD卡读卡器模块，或者tf读卡器模块 如果没有该lib请按Ctrl+Shift+I 从 库管理器中搜索 SD，并安装
 
 
 
