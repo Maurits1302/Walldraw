@@ -422,11 +422,12 @@ void drawfile( String filename)
   String rd="";
   int line=0;
   char rr=0;
-  
-
+  Serial.print("[");
+  Serial.print(filename);
   myFile = SD.open(filename);
+  
   if (myFile) {
-    Serial.println("OPEN:");
+    Serial.println("] Opened");
     
     while (myFile.available()) {
       rr=myFile.read();
@@ -447,7 +448,9 @@ void drawfile( String filename)
     
     myFile.close();
     
-  } 
+  }
+  else
+    Serial.println("Open file error.");
 
 }
 
@@ -475,7 +478,7 @@ void setup() {
   mode_scale = 1;
 
   if (!SD.begin(4)) {
-    Serial.println("initialization failed!");
+    Serial.println("initialization SD failed!");
     while (1);
   }
 
@@ -488,6 +491,7 @@ void setup() {
 
 void loop() {
  //注意卡上的文件名要和程序一致。！！！！！
+ 
   drawfile("1.nc");  //1.nc 是Gcode代码的文件名 ，需要将g代码保存在sd卡上。
   while(1);
 }
